@@ -1,4 +1,5 @@
-## Hey there! I'm Afnan, :
+## Hey there! I'm Afnan
+
 An aspiring Software Engineer and an enthusiastic experimental nerd.<br><br>🔭 I’m currently working on developing a Local AI chatbot using Ollama with a custom chat interface.<br>👯 I’m looking to collaborate on some interesting project ideas using AI and low-level too.<br>🌱 I’m currently tinkering with Arch Linux.<br><br>
 
 
