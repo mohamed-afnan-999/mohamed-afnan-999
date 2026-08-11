@@ -170,11 +170,11 @@ Architected and deployed an enterprise-grade automated QA compliance pipeline, c
 ## ✦ GitHub Analytics
 
 <div align="center">
-  <img src="./profile/stats.svg" width="48%" alt="GitHub Stats" />
   <img src="./profile/streak.svg" width="48%" alt="GitHub Streak" />
+  <img src="./profile/stats.svg" width="48%" alt="GitHub Stats" />
   <br/>
   <br/>
-  <img src="./profile/top-langs.svg" width="60%" alt="Top Languages" />
+  <img src="./profile/top-langs.svg" width="40%" alt="Top Languages" />
 </div>
 
 ---
