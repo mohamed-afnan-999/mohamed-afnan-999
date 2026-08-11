@@ -1,0 +1,49 @@
+name: Generate GitHub Analytics
+
+on:
+  schedule:
+    - cron: "0 */12 * * *" # Runs every 12 hours
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allows the action to commit the SVGs back to your repo
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Generate Main Stats Card
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: 'username=mohamed-afnan-999&show_icons=true&theme=tokyonight&hide_border=true&title_color=7B68EE&icon_color=8A2BE2&text_color=ffffff&bg_color=0d1117'
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Generate Top Languages Card
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: 'username=mohamed-afnan-999&layout=compact&theme=tokyonight&hide_border=true&title_color=7B68EE&text_color=ffffff&bg_color=0d1117'
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 3. Generate Streak Stats Card
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: 'user=mohamed-afnan-999&theme=tokyonight&hide_border=true&stroke=8A2BE2&ring=7B68EE&fire=8A2BE2&currStreakLabel=8A2BE2&background=0d1117'
+          path: profile/streak.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 4. Commit and push the generated SVGs back to your repo
+      - name: Commit newly generated SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git diff --staged --quiet || git commit -m "Update GitHub Analytics SVGs"
+          git push
